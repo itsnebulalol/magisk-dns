@@ -1,0 +1,6 @@
+id=opendns-magisk
+name=OpenDNS for Magisk
+version=v1.0.0
+versionCode=1
+author=Nebula
+description=Route all traffic through OpenDNS.
