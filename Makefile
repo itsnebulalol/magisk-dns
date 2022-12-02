@@ -1,18 +1,11 @@
+BUILD_RULES := $(filter-out .github%, $(wildcard *))
+
 .PHONY: all
 
-all: clean build-opendns build-cloudflare build-quad9 build-google
+all: clean $(BUILD_RULES)
 
-build-opendns:
-	make -C opendns 
-
-build-cloudflare:
-	make -C cloudflare 
-
-build-quad9:
-	make -C quad9 
-
-build-google:
-	make -C google 
+$(BUILD_RULES):
+	make -C $@
 
 clean:
 	rm -rf output
