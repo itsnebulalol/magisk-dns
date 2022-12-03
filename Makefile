@@ -1,11 +1,10 @@
-BUILD_RULES := $(filter-out .github%, $(wildcard *))
+SERVERS = cloudflare google opendns quad9 
 
 .PHONY: all
+all: clean $(foreach s,$(SERVERS),build-$(s))
 
-all: clean $(BUILD_RULES)
-
-$(BUILD_RULES):
-	make -C $@
+build-%:
+	make -C $*
 
 clean:
 	rm -rf output
